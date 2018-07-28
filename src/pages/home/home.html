@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="adicionarProduto()">
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" name="title" [(ngModel)]="produto.title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-input type="text" name="description" [(ngModel)]="produto.description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Preco</ion-label>
+      <ion-input type="number" name="price" [(ngModel)]="produto.price"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Adicionar</button>
+  </form>
+
+  <ion-content>
+    <ion-item-group>
+      <ion-item *ngFor="let item of listaProdutos">{{item.title}}</ion-item>
+    </ion-item-group>
+  </ion-content>
+
+</ion-content>
