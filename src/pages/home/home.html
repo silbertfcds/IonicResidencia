@@ -21,10 +21,25 @@
     <button ion-button type="submit" block>Adicionar</button>
   </form>
 
-  <ion-content>
-    <ion-item-group>
-      <ion-item *ngFor="let item of listaProdutos">{{item.title}}</ion-item>
-    </ion-item-group>
-  </ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let produto of listaProdutos">
+      
+      <ion-item>
+        <h1>{{produto.title}}</h1>
+        <p>{{produto.description}}</p>
+      </ion-item>
+
+      <ion-item-options side="left">
+        <button ion-button color="secondary" (click)="editarProduto(produto)">
+            <ion-icon name=create></ion-icon>
+        </button>
+        <button ion-button color="danger" (click)="removeProduto(produto.id)">
+          <ion-icon name=trash></ion-icon>
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+
+  </ion-list>
 
 </ion-content>

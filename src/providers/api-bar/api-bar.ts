@@ -18,8 +18,21 @@ export class ApiBarProvider {
     return this.http.post('/api/products',objeto);
   }
 
-  public getProduto(){
+  public getProdutos(){
     return this.http.get('/api/products/');
+  }
+
+  public findProduto(id){
+    return this.http.get('/api/products/admin/'+id);
+  }
+
+  public deleteProduto(id){
+    return this.http.delete('/api/products',id);
+  }
+
+  public atualizarProduto(produto){
+    console.log("produto id:"+produto._id);
+    return this.http.put('/api/products/'+produto._id,produto);
   }
 
 }

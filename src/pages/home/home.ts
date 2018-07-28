@@ -32,7 +32,7 @@ export class HomePage {
   }
 
   getListarProdutos(){
-    this.apiBarProvider.getProduto().subscribe(
+    this.apiBarProvider.getProdutos().subscribe(
       data =>{
         const response = (data as any);
         this.listaProdutos = response;
@@ -63,4 +63,18 @@ export class HomePage {
     );
   }
 
+  removeProduto(id){
+    this.apiBarProvider.deleteProduto(id).subscribe(
+      data=>{
+        console.log(data);
+        this.getListarProdutos();
+      },error=>{
+        console.log(error);
+      }
+    );
+  }
+
+  editarProduto(produto: any){
+    this.navCtrl.push('ProdutoPage', { produto: produto});
+  }
 }
